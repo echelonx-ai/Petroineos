@@ -14,7 +14,7 @@ This could take a long time to calculate
 # unlimited number of coins in the machine
 class CoinChange():
     def __init__(self):
-        self.coins_list = [0.5, 0.20, 0.10] #[2., 1., 0.50, 0.20, 0.10, 0.05, 0.02, 0.01]
+        self.coins_list = [2., 1., 0.50, 0.20, 0.10, 0.05, 0.02, 0.01] # [0.5, 0.20, 0.10] #0
         self.sols = []
     
     def calculate_all_combinations(self, sum_input, p, coins):
