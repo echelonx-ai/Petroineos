@@ -2,7 +2,13 @@ import torch
 import torch.nn as nn 
 import torch.nn.functional as F
 
+""" Since the data is almost perioding a simple neural network is likely to do the trick. Hence we experiment with 2 neural network designs
+1. Multi Layer Perception; 'FeedForwardModel' which is simply made up of 3 linear layers
+2. LSTM model; 'LSTMModel' which is a 2 layer model, where first layer is an lstm layer followed by a linear layer for producing an output
 
+LSTM models though are high performing are also notoriously slow to train, and is likely to be overkill for this dataset. Since the dataset is well curated, 
+it is likely the Multi Layer Perceptron simple model is going to outperform LSTM (when trained for the same number of epochs).
+"""
 
 class FeedForwardModel(nn.Module):
     def __init__(self, args):

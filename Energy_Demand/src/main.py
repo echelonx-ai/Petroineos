@@ -6,6 +6,14 @@ from arguments import get_args
 from neural_network import LSTMModel, FeedForwardModel
 from dataset_loader import EnergyDataset 
 
+""" This file consolidates all of the other files in one to perform training and testing
+1. We setup the dataset from the dataset_loader.py file
+2. We setup the model from the neural_network.py file
+3. We define our loss function & optimizer
+4. We train, val and test the model
+5. We save the model outputs in ./saved_models directory ; where you can find pre-trained weights and output trajectories
+"""
+
 args = get_args()
 
 if args.device=='cpu':

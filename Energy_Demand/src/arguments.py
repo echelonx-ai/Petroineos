@@ -5,7 +5,7 @@ def get_args():
     # data arguments
     parser.add_argument('--input_sequence_length', type=int, default=5, help="number of points fed as input into the model")
     parser.add_argument('--output_sequence_length', type=int, default=1, help="number of points outputted by the model")
-    parser.add_argument('--data_path', type=str, default='/home/sam37avhvaptuka451/Documents/Contracts/Petroineos/Energy_Demand/energy.dat', help="dir path of where the data is stored")
+    parser.add_argument('--data_path', type=str, default='/home/Petroineos/Energy_Demand/energy.dat', help="dir path of where the data is stored")
 
     # optimizer arguments
     parser.add_argument('--batch_size', type=int, default=32, help="batch size")
