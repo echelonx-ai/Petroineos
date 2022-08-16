@@ -41,7 +41,7 @@ python ./Energy_Demand/src/main.py --test ...
 ```
 ### Data Exploration
 
-Upon exploring the data, I realised since the data is almost periodic, a neural network should be able to model it pretty easily without the need of smoothing or any fancy processing
+Upon exploring the data, I realised since the data is almost periodic, a neural network should be able to model it pretty easily without the need of smoothing or any fancy processing. Furthermore the Lag plot shows a linear pattern within the data; hence even easier for a neural network to solve.
 
 Hence, our main data processing steps are simple and as follows (implementation can be found in `dataset_loader.py`):
 
@@ -53,6 +53,14 @@ Hence, our main data processing steps are simple and as follows (implementation 
 To understand the data, we create a **time seris plot (together with plotting a 20-point moving average)**
 ![moving average plot](Energy_Demand/images/moving_avg.png)
 
+**Lag Plot**, to see the amount of randomness in the data. Which in the case below; exhibits a linear pattern which is simple to model;
+![moving average plot](Energy_Demand/images/lag_plot.png)
+
+**Autocorrelation Plot** to further verify the lack of randomness in data (perodic waves generated):
+![moving average plot](Energy_Demand/images/autocorr.png)
+
+**Partial Autocorrelation plot**, this is to basically understand the args for the **ARIMA** model.
+![moving average plot](Energy_Demand/images/partial_corr.png)
 ### Forecasting Results
 
 ## Coin Machine
