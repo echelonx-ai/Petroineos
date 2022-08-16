@@ -41,6 +41,18 @@ python ./Energy_Demand/src/main.py --test ...
 ```
 ### Data Exploration
 
+Upon exploring the data, I realised since the data is almost periodic, a neural network should be able to model it pretty easily without the need of smoothing or any fancy processing
+
+Hence, our main data processing steps are simple and as follows (implementation can be found in `dataset_loader.py`):
+
+1. read the data frame
+2. normalise it, within the range of -1 to 1 (helps with LSTM networks; since activation is TanH)
+3. split into train, val and test splits
+4. divide data into sequence windows (i.e. input sequences and corresponding output sequences). This allows easy batching for training
+
+To understand the data, we create a **time seris plot (together with plotting a 20-point moving average)**
+![moving average plot](Energy_Demand/images/moving_avg.png)
+
 ### Forecasting Results
 
 ## Coin Machine
