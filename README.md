@@ -61,7 +61,40 @@ To understand the data, we create a **time seris plot (together with plotting a 
 
 **Partial Autocorrelation plot**, this is to basically understand the args for the **ARIMA** model.
 ![moving average plot](Energy_Demand/images/partial_corr.png)
+
 ### Forecasting Results
+As stated we experiment with the following methods:
+
+1. ARIMA
+2. Multi Layer Perceptron
+3. LSTM
+
+For the neural network a sliding window approach was taken. Given an input sequence length of size `iS` (in my case, `iS = 5`) and the model is tasked to predict the next set of points of size output sequence length i.e. `oS` (in my case, `oS=1`). Making them autoregressive. The stride of the sliding window was 1. For example:
+``` python
+dataset = [1,2,3,4,5,6,7,8]
+input_sequence=5
+output_sequence=1
+# Then the following data subset for input and output will be 
+data_subset_1_input = [1,2,3,4,5]
+data_subset_1_output = [6]
+# where data_subset_1_output is the ground truth the model is trained to predict.
+
+# similarly for stride 2 (i.e. subset 2) the window will shift by one point
+data_subset_2_input = [2,3,4,5,6]
+data_subset_2_output = [7]
+
+# and so on.... till the model has trained with all the points
+```
+
+The following showcases the forecasting results for each.
+
+#### ARIMA Results
+![moving average plot](Energy_Demand/src/saved_models/arima.png)
+#### Multi Layer Perceptron Results
+![moving average plot](Energy_Demand/src/saved_models/ffn.png)
+#### LSTM Results
+![moving average plot](Energy_Demand/src/saved_models/lstm.png)
+
 
 ## Coin Machine
 
