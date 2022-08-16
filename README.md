@@ -86,6 +86,7 @@ data_subset_2_output = [7]
 
 # and so on.... till the model has trained with all the points
 ```
+Furthermore, the data was split as follows: 70% training, 10% validation and 20% testing.
 
 **Discussion of Results**: The following section showcases the forecasting results for each. As expected the **Multi Layer Perceptron Achieves the best results**, followed by LSTM and then ARIMA. As stated since, the data holds a linear correlation and is almost periodic, LSTM is a bit of an overkill and slow to train, hence Multi Layer Perceptron achieves good results within 160 epochs of training. It is possible LSTM may converge to the same result if trained for longer. ARIMA is the worse performing, however this can be improved via hyperparameters / pre-processing. Currently ARIMA uses 140 Lags, which is already over parameterised, however, using greater number of lags can certainly result in a better fit.
 
