@@ -20,6 +20,7 @@ Once all the requirements have been installed, you can run the code. The code fo
 2. `neural_network.py`: Defines the code for the 2 types of model we experiment with. I particularly experiment with two models: `LSTM` and `Multi Layer Perceptron`
 3. `arguments.py`: Defines all the hyper parameters and other args to run the code
 4. `main.py`: Defines functions for training, validation and testing the model and saving the weights
+5. `DataExploration.ipynb`: is a jupyter notebook that explores the data, and runs a simple ARIMA model for forecasting
 
 There are multiple arguments that can be edited either in the `./Energy_Demand/arguments.py` file, or simply via the terminal by using the relevant flag For example the type of model you want to train / test, can be selected by editing the model name arg i.e. `--model_name $model_name` where `$model_name` is a string option `"lstm"` or `"ffn"` to select the LSTM or Multi Layer Perceptron model respectively.
 
@@ -65,7 +66,7 @@ To understand the data, we create a **time seris plot (together with plotting a 
 ### Forecasting Results
 As stated we experiment with the following methods:
 
-1. ARIMA
+1. ARIMA (the code for ARIMA can be found in the notebook: `DataExploration.ipynb`)
 2. Multi Layer Perceptron
 3. LSTM
 
@@ -86,16 +87,20 @@ data_subset_2_output = [7]
 # and so on.... till the model has trained with all the points
 ```
 
-The following showcases the forecasting results for each.
+**Discussion of Results**: The following section showcases the forecasting results for each. As expected the **Multi Layer Perceptron Achieves the best results**, followed by LSTM and then ARIMA. As stated since, the data holds a linear correlation and is almost periodic, LSTM is a bit of an overkill and slow to train, hence Multi Layer Perceptron achieves good results within 160 epochs of training. It is possible LSTM may converge to the same result if trained for longer. ARIMA is the worse performing, however this can be improved via hyperparameters / pre-processing. Currently ARIMA uses 140 Lags, which is already over parameterised, however, using greater number of lags can certainly result in a better fit.
 
-#### ARIMA Results
-![moving average plot](Energy_Demand/src/saved_models/arima.png)
 #### Multi Layer Perceptron Results
 ![moving average plot](Energy_Demand/src/saved_models/ffn.png)
 #### LSTM Results
 ![moving average plot](Energy_Demand/src/saved_models/lstm.png)
+#### ARIMA Results
+![moving average plot](Energy_Demand/src/saved_models/arima.png)
 
 
 ## Coin Machine
-
-### Instructions
+To run the coin change code simply do the following:
+``` python
+python main ./Coin_Machine/main.py
+```
+Given there are 10 demoniations of coin values, the results take a long time to generate. Currently my code is based on Recursion.
+I'd love to get feedback from the assessors to see, how this can be improved into terms of speed efficiency.
