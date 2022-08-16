@@ -15,6 +15,7 @@ pip install -r ./Energy_Demand/requirements.txt
 ```
 ### Instructions
 Once all the requirements have been installed, you can run the code. The code for Energy Demand comprises of the following files:
+
 1. `dataset_loader.py`: Which defines all the data pre-processing steps wrapped in a class, to create a dataset for training a model
 2. `neural_network.py`: Defines the code for the 2 types of model we experiment with. I particularly experiment with two models: `LSTM` and `Multi Layer Perceptron`
 3. `arguments.py`: Defines all the hyper parameters and other args to run the code
